@@ -6,22 +6,33 @@ import os
 
 from mutagen.easyid3 import EasyID3
 
-PATH_OF_SONGS = "G:\গীতাঞ্জলি\উত্তম সঙ্গীত\_উর্ধ্বগামী\Robert Johnson Complete Temp 1"
+# Directory of the songs
+path_of_songs = "G:\গীতাঞ্জলি\উত্তম সঙ্গীত\_উর্ধ্বগামী\Robert Johnson Complete Temp 1"
 
-album = ""
+# Data to be added
 title = ""
+album = ""
 artist = ""
 albumartist = ""
-tracknumber = ""
 genre = ""
 date = ""
 
-# print(EasyID3.valid_keys.keys())
-
-for file_path in os.scandir(PATH_OF_SONGS):
+# Scan the directory and edit metadata
+tracknumber = 1
+for file_path in os.scandir(path_of_songs):
 	audio = EasyID3(file_path)
 
 	for key in audio.keys():
 		audio[key] = ""
 
+	audio["title"] = title
+	audio["album"] = album
+	audio["artist"] = artist
+	audio["albumartist"] = albumartist
+	audio["genre"] = genre
+	audio["date"] = date
+	audio["tracknumber"] = str(tracknumber)
+
 	audio.save()
+
+	tracknumber += 1
