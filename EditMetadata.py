@@ -4,11 +4,12 @@
 #
 import os
 
-import eyed3
+from mutagen.easyid3 import EasyID3
 
 PATH_OF_SONGS = "G:\গীতাঞ্জলি\উত্তম সঙ্গীত\_উর্ধ্বগামী\Robert Johnson Complete Temp 1"
 
-path = PATH_OF_SONGS
-for file_path in os.scandir(path):
-	tag = eyed3.load(file_path).tag
-	tag.remove(file_path)
+ARTIST = "Robert Johnson"
+
+for file_path in os.scandir(PATH_OF_SONGS):
+	audio = EasyID3(file_path)
+	print(audio)
