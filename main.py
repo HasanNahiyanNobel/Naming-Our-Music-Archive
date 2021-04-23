@@ -5,6 +5,8 @@
 import ntpath
 import os
 
+import eyed3
+
 # Declare final variables
 PATH_OF_SONGS = "G:\গীতাঞ্জলি\উত্তম সঙ্গীত\_উর্ধ্বগামী\Robert Johnson Complete Temp 1"
 START_OF_RENAME_INDEX = 1
@@ -41,6 +43,7 @@ path = PATH_OF_SONGS
 index = START_OF_RENAME_INDEX
 for file_path in os.scandir(path):
 	file_name = ntpath.basename(file_path)
+	audio = eyed3.load(file_path)
 
 	directory = ntpath.dirname(file_path)
 	file_extension = file_name.rsplit('.',1)[1] # Splits to the last occurrence of '.' and takes the second element (which is the file extension)
@@ -52,6 +55,7 @@ for file_path in os.scandir(path):
 
 	# Rename that path
 	print("Renaming: " + file_path.path)
+	print(audio.tag.artist)
 	try:
 		os.rename(file_path.path, new_file_path)
 		print("New path: " + new_file_path + "\n")
