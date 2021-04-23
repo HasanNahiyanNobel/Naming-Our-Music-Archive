@@ -1,7 +1,10 @@
 input_file = open("input.txt", 'r')
-lines = input_file.readlines()
+input_lines = input_file.readlines()
 input_file.close()
 
-for line in lines:
-	song_name = line.split('\t')[1]
-	print(song_name)
+start_index = 1
+for line in input_lines:
+	song_name = line.split('\t')[1].replace('\"', '')
+	file_name = str(start_index) + ". " + song_name
+	print(file_name)
+	start_index += 1
