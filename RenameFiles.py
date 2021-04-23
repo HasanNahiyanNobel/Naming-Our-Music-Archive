@@ -22,7 +22,7 @@ file_names = []
 index = 1
 for line in input_lines:
 	song_name = line.split('\t')[1].replace('\"', '')
-	file_name = str(index) + ". " + song_name
+	file_name = str(index).zfill(2) + ". " + song_name
 	file_names.append(file_name)
 	index += 1
 
