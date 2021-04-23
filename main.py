@@ -51,10 +51,11 @@ for file_path in os.scandir(path):
 	new_file_path = directory + "\\" + new_file_name + "." + file_extension
 
 	# Rename that path
+	print("Renaming: " + file_path.path)
 	try:
 		os.rename(file_path.path, new_file_path)
-	except FileExistsError:
-		print("The following file already exists: ")
-		print(new_file_path + "\n")
+		print("New path: " + new_file_path + "\n")
+	except OSError:
+		print("Some terrible error occurred.\n")
 
 	index += 1
