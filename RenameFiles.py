@@ -12,7 +12,7 @@ PRINT_INPUT_TO_CONSOLE = False
 
 
 # Read from input file
-input_file = open("input.txt", 'r')
+input_file = open("Input.txt", 'r')
 input_lines = input_file.readlines()
 input_file.close()
 
