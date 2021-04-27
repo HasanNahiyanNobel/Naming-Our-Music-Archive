@@ -1,8 +1,9 @@
-# Naming-Our-Music-Archive
+# Naming Our Music Archive
 This is a combination of two simple python scripts:
 
 ## 1. `RenameFiles.py`
-1. Read lines from `input.txt` file. This input text is a direct copy-paste from a Wikipedia *track listing* table, like [this](https://en.wikipedia.org/wiki/Rubber_Soul#Track_listing). According to general Wikipedia convention, the second column of the table holds song name, so is our assumption of this input.
+1. Reads lines from `input.txt` file. This input text is a direct copy-paste from a Wikipedia *track listing* table, like [this](https://en.wikipedia.org/wiki/Rubber_Soul#Track_listing).
+1. The variables `SPLIT_CHAR` and `COL_INDEX_IN_INPUT` are set according to the table, to retrieve the song names.
 1. Given a path and an index *n*, all the files in that path are renamed from the *n*th row of the track listing table, having "n. " as its prefix, with a leading zero for *n*<10.
 
 ## 2. `EditMetadata.py`
