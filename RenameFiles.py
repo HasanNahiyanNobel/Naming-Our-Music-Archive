@@ -6,9 +6,11 @@ import ntpath
 import os
 
 # Declare final variables
-PATH_OF_SONGS = "G:\গীতাঞ্জলি\উত্তম সঙ্গীত\_উর্ধ্বগামী\Robert Johnson Complete Temp 1"
+PATH_OF_SONGS = ""
 START_OF_RENAME_INDEX = 1
 PRINT_INPUT_TO_CONSOLE = False
+SPLIT_CHAR = '\"'
+COL_INDEX_IN_INPUT = 1
 
 
 # Read from input file
@@ -21,7 +23,7 @@ input_file.close()
 file_names = []
 index = 1
 for line in input_lines:
-	song_name = line.split('\t')[1].replace('\"', '')
+	song_name = line.split(SPLIT_CHAR)[COL_INDEX_IN_INPUT].replace('\"', '')
 	file_name = str(index).zfill(2) + ". " + song_name
 	file_names.append(file_name)
 	index += 1
@@ -43,7 +45,7 @@ for file_path in os.scandir(path):
 	file_name = ntpath.basename(file_path)
 
 	directory = ntpath.dirname(file_path)
-	file_extension = file_name.rsplit('.',1)[1] # Splits to the last occurrence of '.' and takes the second element (which is the file extension)
+	file_extension = file_name.rsplit('.', 1)[1]  # Splits to the last occurrence of '.' and takes the second element (which is the file extension)
 
 	new_file_name = file_names[index-1]
 
