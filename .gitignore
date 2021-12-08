@@ -4,6 +4,5 @@
 # Python virtual environment
 venv/
 
-# Input and output directories
-input/
-output/
+# Input and output directory
+io/
