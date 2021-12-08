@@ -21,7 +21,9 @@ genre = 'Folk rock; Rock; Pop'
 date = '1969'
 originaldate = '1969'
 
+
 # Format every .py file using yapf Google style
-py_files = glob.glob('*.py')
-for py_file in py_files:
-    os.system('yapf ' + py_file + ' -i --style google --no-local-style')
+def format_files():
+    py_files = glob.glob('*.py')
+    for py_file in py_files:
+        os.system('yapf ' + py_file + ' -i --style google --no-local-style')
