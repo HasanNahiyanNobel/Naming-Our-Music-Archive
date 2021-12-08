@@ -4,5 +4,6 @@
 # Python virtual environment
 venv/
 
-# Input file
-input.txt
+# Input and output directories
+input/
+output/

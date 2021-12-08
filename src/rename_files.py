@@ -13,7 +13,7 @@ SPLIT_CHAR = '\"'
 COL_INDEX_IN_INPUT = 1
 
 # Read from input file
-input_file = open("input.txt", 'r')
+input_file = open("../input/input.txt", 'r')
 input_lines = input_file.readlines()
 input_file.close()
 
