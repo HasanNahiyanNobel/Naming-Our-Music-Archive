@@ -13,7 +13,6 @@ PATH_OF_ALBUM_DATA = '../input/album_data.txt'
 OUTPUT_DIR = '../output'
 
 # Variables
-title = ''
 album = 'The Velvet Underground'
 artist = 'The Velvet Underground'
 albumartist = 'The Velvet Underground'

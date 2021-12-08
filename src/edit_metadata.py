@@ -7,7 +7,6 @@ from os import scandir
 from mutagen.easyid3 import EasyID3
 from utilities import (
     PATH_OF_SONGS,
-    title,
     album,
     artist,
     albumartist,
@@ -28,6 +27,10 @@ for file_path in scandir(PATH_OF_SONGS):
     # Show it in console
     print('Processing: ' + audio.filename)
     print('Old data  : ' + str(audio))
+
+    # Extract title from filename
+    file_name_with_extension = audio.filename.split('. ')[1]
+    title = file_name_with_extension.split('.')[0]
 
     # Clear existing metadata
     for key in audio.keys():
