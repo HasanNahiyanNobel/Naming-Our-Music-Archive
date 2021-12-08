@@ -2,27 +2,26 @@
 Author: Hasan Nahiyan Nobel
 Copyright: Attribution 4.0 International (CC BY 4.0)
 """
+
 import os
-from utilities import PATH_OF_SONGS
 from mutagen.easyid3 import EasyID3
+from utilities import (
+    PATH_OF_SONGS,
+    title,
+    album,
+    artist,
+    albumartist,
+    genre,
+    date,
+    originaldate,
+)
 
 # Print all the possible keys
 # print(EasyID3.valid_keys.keys())
 
-path_of_songs = PATH_OF_SONGS
-
-# Data to be added
-title = ''
-album = 'The Velvet Underground'
-artist = 'The Velvet Underground'
-albumartist = 'The Velvet Underground'
-genre = 'Folk rock; Rock; Pop'
-date = '1969'
-originaldate = '1969'
-
 # Scan the directory and edit metadata
 tracknumber = 1
-for file_path in os.scandir(path_of_songs):
+for file_path in os.scandir(PATH_OF_SONGS):
     # Load the file
     audio = EasyID3(file_path)
 

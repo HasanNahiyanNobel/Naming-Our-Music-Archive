@@ -2,20 +2,21 @@
 Author: Hasan Nahiyan Nobel
 Copyright: Attribution 4.0 International (CC BY 4.0)
 """
+
 import ntpath
 import os
-from utilities import PATH_OF_SONGS
+from utilities import PATH_OF_SONGS, PATH_OF_ALBUM_DATA
 
-# Declare final variables
+# Declare the final variables
 START_OF_RENAME_INDEX = 1
 PRINT_INPUT_TO_CONSOLE = False
 SPLIT_CHAR = '\"'
 COL_INDEX_IN_INPUT = 1
 
 # Read from input file
-input_file = open('../io/input.txt', 'r')
-input_lines = input_file.readlines()
-input_file.close()
+album_data_file = open(PATH_OF_ALBUM_DATA, 'r')
+input_lines = album_data_file.readlines()
+album_data_file.close()
 
 # Save song names to array
 file_names = []
