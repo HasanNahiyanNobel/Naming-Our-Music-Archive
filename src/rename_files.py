@@ -4,7 +4,7 @@ Copyright: Attribution 4.0 International (CC BY 4.0)
 """
 
 import ntpath
-import os
+from os import scandir, rename
 from utilities import PATH_OF_SONGS, PATH_OF_ALBUM_DATA
 
 # Declare the final variables
@@ -37,7 +37,7 @@ path = PATH_OF_SONGS
 
 # Rename the files
 index = START_OF_RENAME_INDEX
-for file_path in os.scandir(path):
+for file_path in scandir(path):
     file_name = ntpath.basename(file_path)
 
     directory = ntpath.dirname(file_path)
@@ -53,7 +53,7 @@ for file_path in os.scandir(path):
     # Rename that path
     print('Renaming: ' + file_path.path)
     try:
-        os.rename(file_path.path, new_file_path)
+        rename(file_path.path, new_file_path)
         print('New path: ' + new_file_path + '\n')
     except OSError:
         print('Some terrible error occurred.\n')

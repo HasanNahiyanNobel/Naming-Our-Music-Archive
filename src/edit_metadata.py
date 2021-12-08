@@ -3,7 +3,7 @@ Author: Hasan Nahiyan Nobel
 Copyright: Attribution 4.0 International (CC BY 4.0)
 """
 
-import os
+from os import scandir
 from mutagen.easyid3 import EasyID3
 from utilities import (
     PATH_OF_SONGS,
@@ -21,7 +21,7 @@ from utilities import (
 
 # Scan the directory and edit metadata
 tracknumber = 1
-for file_path in os.scandir(PATH_OF_SONGS):
+for file_path in scandir(PATH_OF_SONGS):
     # Load the file
     audio = EasyID3(file_path)
 
