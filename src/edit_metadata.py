@@ -1,0 +1,56 @@
+"""
+Author: Hasan Nahiyan Nobel
+Copyright: Attribution 4.0 International (CC BY 4.0)
+"""
+
+from os import scandir
+from mutagen.easyid3 import EasyID3
+from utilities import (
+    PATH_OF_SONGS,
+    album,
+    artist,
+    albumartist,
+    genre,
+    date,
+    originaldate,
+)
+
+# Print all the possible keys
+# print(EasyID3.valid_keys.keys())
+
+# Scan the directory and edit metadata
+tracknumber = 1
+for file_path in scandir(PATH_OF_SONGS):
+    # Load the file
+    audio = EasyID3(file_path)
+
+    # Show it in console
+    print('Processing: ' + audio.filename)
+    print('Old data  : ' + str(audio))
+
+    # Extract title from filename
+    file_name_with_extension = audio.filename.split('. ')[1]
+    title = file_name_with_extension.split('.')[0]
+
+    # Clear existing metadata
+    for key in audio.keys():
+        audio[key] = ''
+
+    # Add new data
+    audio['title'] = title
+    audio['album'] = album
+    audio['artist'] = artist
+    audio['albumartist'] = albumartist
+    audio['genre'] = genre
+    audio['date'] = date
+    audio['originaldate'] = originaldate
+    audio['tracknumber'] = str(tracknumber)
+
+    # Save the file
+    audio.save()
+
+    # Show in console
+    print('New data  : ' + str(audio) + '\n')
+
+    # Increase track number
+    tracknumber += 1

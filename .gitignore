@@ -1,3 +1,9 @@
-/venv/
-.idea
-/Input.txt
+# Jetbrains configuration folder
+.idea/
+
+# Python virtual environment
+venv/
+
+# Input and output directories
+input/
+output/
