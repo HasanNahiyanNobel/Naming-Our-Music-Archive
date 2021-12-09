@@ -1,13 +1,10 @@
 # Algorithm to Rename and Edit Metadata of an Album
 
-1. Copy songs of the album to the directory `io/album/`.
-2. Set path of songs in `utilities.py`.
-3. Set data in `edit_metadata.py`.
-4. Paste data in `input.txt`, from Wikipedia table.
-5. Check whether the sequence of songs in `input.txt` matches with the folder.
-6. Run `rename_files.py`.
-7. Check whether every renaming is okay.
-8. Run `edit_metadata.py`.
-9. Check whether the updated data seems okay.
-10. Download `Folder.gif`.
-11. Rename the folder.
+1. Copy songs of the album to the directory `input/album/`.
+2. Set constants and variables in `utilities.py`.
+3. Paste data in `input/album_data.txt`, from Wikipedia table.
+4. Check whether the sequence of songs in Wikipedia table matches with the folder.
+5. Run `starter.py`.
+6. Check console output and ensure that everything is okay. If not, restart from step 1.
+7. Download `Folder.gif`.
+8. Copy the folder to the directory of archive.

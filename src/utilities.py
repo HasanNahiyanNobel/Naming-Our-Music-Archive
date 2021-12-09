@@ -7,7 +7,6 @@ import glob
 import os
 
 # Constants
-# TODO: Fix Algorithm.md according to this change
 PATH_OF_SONGS = '../input/album'
 PATH_OF_ALBUM_DATA = '../input/album_data.txt'
 OUTPUT_DIR = '../output'
