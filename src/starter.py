@@ -9,7 +9,7 @@ from utilities import (
     PATH_OF_SONGS,
     OUTPUT_DIR,
     album,
-    originaldate,
+    date,
     format_files,
 )
 
@@ -23,7 +23,7 @@ system('py rename_files.py')
 system('py edit_metadata.py')
 
 # Copy songs to the new directory
-folder_name = album + ' (' + originaldate + ')'
+folder_name = album + ' (' + date + ')'
 path_of_output = path.join(OUTPUT_DIR, folder_name)
 move(PATH_OF_SONGS, path_of_output)
 
