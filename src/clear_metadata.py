@@ -1,3 +1,5 @@
+# To create en executable file: pyinstaller --clean -F --specpath=build --hidden-import=mutagen.id3 clear_metadata.py
+
 import os
 from os import scandir
 from mutagen.id3 import ID3, ID3NoHeaderError
