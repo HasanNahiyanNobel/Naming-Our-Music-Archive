@@ -14,7 +14,7 @@ SPLIT_CHAR = '\"'
 COL_INDEX_IN_INPUT = 1
 
 # Read from input file
-album_data_file = open(PATH_OF_ALBUM_DATA, 'r')
+album_data_file = open(PATH_OF_ALBUM_DATA, 'r', encoding='utf-8')
 input_lines = album_data_file.readlines()
 album_data_file.close()
 

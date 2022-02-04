@@ -4,6 +4,7 @@ Copyright: Attribution 4.0 International (CC BY 4.0)
 """
 
 from os import scandir
+from mutagen.id3 import ID3
 from mutagen.easyid3 import EasyID3
 from utilities import (
     PATH_OF_SONGS,
@@ -23,6 +24,7 @@ tracknumber = 1
 for file_path in scandir(PATH_OF_SONGS):
     # Load the file
     audio = EasyID3(file_path)
+    file = ID3(file_path)
 
     # Show it in console
     print('Processing: ' + audio.filename)
@@ -33,8 +35,7 @@ for file_path in scandir(PATH_OF_SONGS):
     title = file_name_with_extension.split('.')[0]
 
     # Clear existing metadata
-    for key in audio.keys():
-        audio[key] = ''
+    file.delete()
 
     # Add new data
     audio['title'] = title
