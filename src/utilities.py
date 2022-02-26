@@ -12,12 +12,12 @@ PATH_OF_ALBUM_DATA = '../input/album_data.txt'
 OUTPUT_DIR = '../output'
 
 # Variables
-album = 'The Velvet Underground'
-artist = 'The Velvet Underground'
-albumartist = 'The Velvet Underground'
-genre = 'Folk rock; Rock; Pop'
-date = '1969'
-originaldate = '1969'
+album = ''
+artist = ''
+albumartist = ''
+genre = ''
+date = ''
+originaldate = ''
 
 
 # Format every .py file using yapf Google style
