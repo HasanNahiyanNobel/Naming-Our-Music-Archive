@@ -31,8 +31,10 @@ for file_path in scandir(PATH_OF_SONGS):
     print('Old data  : ' + str(audio))
 
     # Extract title from filename
-    file_name_with_extension = audio.filename.split('. ')[1]
-    title = file_name_with_extension.split('.')[0]
+    file_name_with_extension = audio.filename.split(
+        '. ', 1
+    )[1]  # The second argument inside split function is needed to ensure that any period in title is preserved. For details: https://stackoverflow.com/a/6903597
+    title = file_name_with_extension.split('.mp3')[0]
 
     # Clear existing metadata
     file.delete()
