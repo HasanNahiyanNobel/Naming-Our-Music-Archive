@@ -15,25 +15,35 @@ CONFIG_FILE_EXTENSIONS = ['.ini', '.json', '.xml', '.yml', '.yaml', '.toml']
 # Get the current working directory
 current_dir = getcwd()
 
+
+
 # Find the album art
+def find_album_art_for_current_file(file_path):
+    directory_of_current_file = ntpath.dirname(file_path)
+    for file_path in scandir(directory_of_current_file):
+        file_extension = ntpath.splitext(file_path)[1]
+        if file_extension in IMAGE_FILE_EXTENSIONS:
+            return file_path
+    raise Exception(f'No album art found for: {file_path}')
+
+
+
+# Associate album art to all audio files
 def add_album_art(album_path):
     for file_path in scandir(album_path):
+        album_art_path = None
         if path.isdir(file_path):
+            print(f'Processing directory: {ntpath.basename(file_path)}')
             add_album_art(file_path)
         else:
+            if album_art_path is None:
+                album_art_path = find_album_art_for_current_file(file_path)
             file_name = ntpath.basename(file_path)
             file_extension = ntpath.splitext(file_path)[1]
-
             if file_extension in AUDIO_FILE_EXTENSIONS:
-                file_type = 'audio'
-            elif file_extension in IMAGE_FILE_EXTENSIONS:
-                file_type = 'image'
-            elif file_extension in CONFIG_FILE_EXTENSIONS:
-                file_type = 'config'
-            else:
-                raise Exception(f'Unknown file type: {file_path}')
+                print(f'\t{file_name} -> {album_art_path}')
 
-            print(f'{file_name}: {file_type}')
+
 
 # Run the function
 add_album_art(PATH_OF_ALBUM)
