@@ -30,8 +30,8 @@ def find_album_art_for_current_file(file_path):
 
 # Associate album art to all audio files
 def add_album_art(album_path):
+    album_art_path = None
     for file_path in scandir(album_path):
-        album_art_path = None
         if path.isdir(file_path):
             print(f'Processing directory: {ntpath.basename(file_path)}')
             add_album_art(file_path)
